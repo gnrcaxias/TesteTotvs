@@ -1,0 +1,10 @@
+﻿Id;IdHotel;Preço;PreçoPromocional;Banheiro;Frigobar;Telefone;Tv;Ventilador;Foto1;Foto2;Foto3
+1;1;100,00;100,00;true;false;true;true;true;\Fotos\Foto11.jpg;\Fotos\Foto21.jpg;\Fotos\Foto31.jpg
+2;1;159,90;0,00;true;false;true;true;true;\Fotos\Foto12.jpg;\Fotos\Foto22.jpg;\Fotos\Foto32.jpg
+3;1;200,00;150,00;true;false;false;true;true;\Fotos\Foto13.jpg;\Fotos\Foto23.jpg;\Fotos\Foto33.jpg
+4;2;150,00;140,00;true;false;false;true;true;\Fotos\Foto14.jpg;\Fotos\Foto24.jpg;\Fotos\Foto34.jpg
+5;2;130,00;0,00;true;true;false;true;false;\Fotos\Foto15.jpg;\Fotos\Foto25.jpg;\Fotos\Foto35.jpg
+6;2;250,00;250,00;true;true;false;true;false;\Fotos\Foto16.jpg;\Fotos\Foto26.jpg;\Fotos\Foto36.jpg
+7;3;270,00;0,00;true;true;false;false;false;\Fotos\Foto17.jpg;\Fotos\Foto27.jpg;\Fotos\Foto37.jpg
+8;3;230,15;199,99;false;true;false;false;false;\Fotos\Foto18.jpg;\Fotos\Foto28.jpg;\Fotos\Foto38.jpg
+9;3;400,00;99,99;false;true;false;false;false;\Fotos\Foto19.jpg;\Fotos\Foto29.jpg;\Fotos\Foto39.jpg

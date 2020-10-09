@@ -1,0 +1,128 @@
+﻿
+@model IEnumerable<TesteTotvs.MVC.Models.Quarto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="container">
+                <h2>Filtros para pesquisa</h2>
+
+                @using (Html.BeginForm("Index", "Pesquisa", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="">Faixa de Preço:</label>
+                        <div class="col-sm-2">
+                            @Html.TextBox("PrecoInicial", null, new { @class = "form-control" })
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.TextBox("PrecoFinal", null, new { @class = "form-control" })
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="">Adicionais do Hotel:</label>
+                        <div class="col-sm-2">
+                            @Html.CheckBox("WifiGratis", false, new { @class = "custom-control-input" })
+                            <label class="control-label" for="WifiGratis">Wifi Grátis</label>
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.CheckBox("CafeGratis", false, new { @class = "custom-control-input" })
+                            <label class="control-label" for="CafeGratis">Café Grátis</label>
+                        </div>
+                        <div class="col-sm-3">
+                            @Html.CheckBox("EstacionamentoGratis", false, new { @class = "custom-control-input" })
+                            <label class="control-label" for="EstacionamentoGratis">Estacionamento Grátis</label>
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.CheckBox("Piscina", false, new { @class = "custom-control-input" })
+                            <label class="control-label" for="Piscina">Piscina</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="">Adicionais do Quarto:</label>
+                        <div class="col-sm-2">
+                            @Html.CheckBox("Frigobar", false, new { @class = "custom-control-input" })
+                            <label class="control-label" for="Frigobar">Frigobar</label>
+                        </div>
+                        <div class="col-sm-1">
+                            @Html.CheckBox("Tv", false, new { @class = "custom-control-input" })
+                            <label class="control-label" for="Tv">TV</label>
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.CheckBox("Banheiro", false, new { @class = "custom-control-input" })
+                            <label class="control-label" for="Banheiro">Banheiro</label>
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.CheckBox("Telefone", false, new { @class = "custom-control-input" })
+                            <label class="control-label" for="Telefone">Telefone</label>
+                        </div>
+                        <div class="col-sm-2">
+                            @Html.CheckBox("Ventilador", false, new { @class = "custom-control-input" })
+                            <label class="control-label" for="Ventilador">Ventilador</label>
+                        </div>
+                        <div class="col-sm-offset-11 col-sm-2">
+                            <button type="submit" class="btn btn-default">Pesquisar</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>        
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Código</th>
+                    <th>Nome do Hotel</th>
+                    <th>Preço</th>
+                    <th>Preço Promocional</th>
+                    <th>Diferenciais Quarto</th>
+                    <th>Diferenciais Hotel</th>
+                    <th>Foto 1</th>
+                    <th>Foto 2</th>
+                    <th>Foto 3</th>
+                    <th></th>
+                </tr>
+                @foreach (var quarto in Model)
+            {
+
+                    <tr @if (@quarto.PrecoPromocional > 0 && @quarto.PrecoPromocional != quarto.Preco) { <text> class="destaquePromocao" </text>   }>
+
+                        <td>@quarto.Id</td>
+                        <td>@quarto.Hotel.NomeHotel</td>
+                        <td>@quarto.Preco</td>
+                        <td>@quarto.PrecoPromocional</td>
+                        <td>@Html.Action("RetornaDiferenciaisQuarto", new { idQuarto = quarto.Id })</td>
+                        <td>@Html.Action("RetornaDiferenciaisHotel", new { idHotel = quarto.Hotel.Id })</td>
+                        <td>
+                            @if (!string.IsNullOrWhiteSpace(quarto.Foto1))
+                            {
+                                <img src="~/Resources/@quarto.Foto1" alt="Foto 1" width="150" />
+                            }
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrWhiteSpace(quarto.Foto2))
+                            {
+                                <img src="~/Resources/@quarto.Foto2" alt="Foto 2" width="150" />
+                            }
+                        </td>
+                        <td>
+                            @if (!string.IsNullOrWhiteSpace(quarto.Foto3))
+                            {
+                                <img src="~/Resources/@quarto.Foto2" alt="Foto 3" width="150" />
+                            }
+                        </td>
+                        <td></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

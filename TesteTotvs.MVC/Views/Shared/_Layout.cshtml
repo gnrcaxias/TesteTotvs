@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Sistema para Pesquisa de Hotéis Totvs</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="header">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Inicial", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Pesquisa de Hoteis", "Index", "Pesquisa")</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div style="clear:both"></div>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

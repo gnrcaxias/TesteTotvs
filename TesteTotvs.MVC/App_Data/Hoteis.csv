@@ -1,0 +1,4 @@
+﻿Id;NomeHotel;Cidade;Bairro;WifiGratis;CafeDaManhaGratis;EstacionamentoGratis;Piscina;QuantidadeEstrelas
+1;Hotel 1;Caxias do Sul;Centro;false;true;false;false;5
+2;Hotel 2;Caxias do Sul;Exposição;true;true;true;false;3
+3;Hotel 3;Bento Gonçalves;Centro;true;true;false;false;1

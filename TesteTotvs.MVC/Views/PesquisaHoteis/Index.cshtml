@@ -1,0 +1,73 @@
+﻿
+@model IEnumerable<TesteTotvs.MVC.Models.Hotel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+
+    @using (Html.BeginForm())
+    {
+        <h2>Filtros Para Pesquisa</h2>
+
+        <table class="table">
+            <tr>
+                <td>Preço Inicial</td>
+                <td>@Html.TextBox("PrecoInicial") - @Html.TextBox("PrecoFinal")</td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <td>Wifi Grátis: @Html.CheckBox("WifiGratis")</td>
+                <td>Café da Manhã Grátis @Html.CheckBox("CafeGratis")</td>
+                <td>Estacionamento Grátis @Html.CheckBox("EstacionamentoGratis")</td>
+                <td>Piscina @Html.CheckBox("Piscina")</td>
+            </tr>
+        </table>
+
+        <p>
+            <input type="submit" value="Search" />
+        </p>
+    }
+    </div>
+
+<div>
+
+
+
+    <table class="table">
+        <tr>
+            <th>Código</th>
+            <th>Nome do Hotel</th>
+            <th>Cidade</th>
+            <th>Bairro</th>
+            <th>Wifi Grátis</th>
+            <th>Café da Manhã Grátis</th>
+            <th>Estacionamento Grátis</th>
+            <th>Piscina</th>
+            <th>Quantidade de Estrelas</th>
+            <th></th>
+        </tr>
+        @foreach (var hotel in Model)
+        {
+            <tr>
+                <td>@hotel.Id</td>
+                <td>@hotel.NomeHotel</td>
+                <td>@hotel.Cidade</td>
+                <td>@hotel.Bairro</td>
+                <td>@Html.CheckBox("isNewlyEnrolled", hotel.WifiGratis, new { @disabled = true })</td>
+                <td>@Html.CheckBox("isNewlyEnrolled", hotel.CafeDaManhaGratis, new { @disabled = true })</td>
+                <td>@Html.CheckBox("isNewlyEnrolled", hotel.EstacionamentoGratis, new { @disabled = true })</td>
+                <td>@Html.CheckBox("isNewlyEnrolled", hotel.Piscina, new { @disabled = true })</td>
+                <td>@hotel.QuantidadeEstrelas</td>
+                <td><a href="/PesquisaHoteis/Detalhe/@hotel.Id">Ver Quartos</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+  
+
